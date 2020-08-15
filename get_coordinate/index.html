@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>title</title>
+  </head>
+  <style>
+    .button__container{
+      text-align: right;
+      position: fixed;
+      top: 10px;
+      right: 10px;
+    }
+
+    .squre {
+      width: 200px;
+      height: 200px;
+      border: 1px solid;
+      margin-bottom: 10px;
+      background-color: rgb(236, 241, 161);
+    }
+
+    .container .special {
+      background-color: rgb(33, 48, 99);
+    }
+  </style>
+
+  <body>
+    <div class="button__container">
+      <button class="button-move">Scroll by 100px(y)</button>
+      <button class="button-go">Scroll to 100px(y)</button>
+      <button class="button-to">Scroll into special</button>
+    </div>
+   
+    </button>
+    <div class="container">
+      <div class="squre"></div>
+      <div class="squre"></div>
+      <div class="squre"></div>
+      <div class="squre"></div>
+      <div class="squre"></div>
+      <div class="squre"></div>
+      <div class="squre"></div>
+      <div class="squre special"></div>
+      <div class="squre"></div>
+      <div class="squre"></div>
+    </div>
+    <script>
+      const coordinate = document.querySelector(".special");
+      coordinate.addEventListener("click", (event) => {
+        const result = coordinate.getBoundingClientRect();
+        console.log(result);
+        console.log(`x : ${result.x}`);
+        console.log(`x : ${event.pageX}`);
+      });
+
+      const scroll_by = document.querySelector('.button-move');
+      const scroll_to = document.querySelector('.button-go');
+      const scroll_target = document.querySelector('.button-to');
+      scroll_by.addEventListener('click',()=>{
+        window.scrollBy(0,100);
+      })
+
+      scroll_to.addEventListener('click',()=>{
+        window.scrollTo(0,100);
+      })
+
+      scroll_target.addEventListener('click',()=>{
+        coordinate.scrollIntoView({behavior:'smooth'});
+      })
+    </script>
+  </body>
+</html>

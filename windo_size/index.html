@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .size {
+        background-color: violet;
+        display: inline;
+        font-size: 48px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="size">
+      Window Size
+      <script>
+        const size = document.querySelector(".size");
+        function updateTag() {
+          size.innerHTML = `
+        window.screen : ${window.screen.width}, ${window.screen.height}<br>
+        window.outer : ${window.outerWidth}, ${window.outerHeight}<br>
+        window.inner : ${window.innerWidth}, ${window.innerHeight}<br>
+        documentElement.clientWidth: ${document.documentElement.clientWidth},${document.documentElement.clientHeight}`;
+        }
+        // 창이 resize될때마다 innerHTML 호출
+        window.addEventListener("resize", () => {
+          updateTag();
+        });
+        //페이지 실행될때 함수 처음 등쟈앙
+        updateTag();
+      </script>
+    </div>
+  </body>
+</html>
