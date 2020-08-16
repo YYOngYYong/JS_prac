@@ -4,16 +4,23 @@ const itemList = document.querySelector(".item_list");
 
 //Element 추가
 function addItem() {
+  if (input === null) {
+    input.value = " ";
+    input.focus();
+  } else {
+    const text = input.value;
+    //2. 새로운 아이템을 만듬 (텍스트 + 삭제버튼)
+    const item = createItem(text);
+    item.appendChild(item);
+    input.value = "";
+    input.focus();
+  }
+
   //1. 사용자가 입력한 데이터를 받아옴
-  const text = input.value;
-  //2. 새로운 아이템을 만듬 (텍스트 + 삭제버튼)
-  const item = createItem(text);
 
   //3. items 컨테이너 안에 새로 만든 아이템을 추가한다.
 
   //4. 인풋 초기화
-  input.value = "";
-  input.focus();
 }
 
 function createItem(text) {
@@ -39,6 +46,8 @@ function createItem(text) {
     item.appendChild(itemRow);
     item.appendChild(deleteBtn);
     itemList.append(item_divider);
+    input.value = "";
+    input.focus();
   }
 
   deleteBtn.addEventListener("click", () => {
