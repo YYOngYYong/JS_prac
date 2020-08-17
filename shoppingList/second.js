@@ -6,14 +6,15 @@ function onAdd() {
   const text = input.value;
 
   if (text === "") {
-    text = "";
-    input.focus();
     alert("상품 이름을 입력해주세요");
+    input.focus();
     return;
   }
 
   const item = createItem(text);
   items.appendChild(item);
+  item.scrollIntoView({ block: "center" });
+  input.focus();
 }
 
 function createItem(text) {
