@@ -9,18 +9,14 @@ function addItem() {
     input.focus();
   } else {
     const text = input.value;
-    //2. 새로운 아이템을 만듬 (텍스트 + 삭제버튼)
+    
     const item = createItem(text);
     item.appendChild(item);
     input.value = "";
     input.focus();
   }
 
-  //1. 사용자가 입력한 데이터를 받아옴
-
-  //3. items 컨테이너 안에 새로 만든 아이템을 추가한다.
-
-  //4. 인풋 초기화
+  /
 }
 
 function createItem(text) {
@@ -37,7 +33,7 @@ function createItem(text) {
   deleteBtn.setAttribute("class", "fas fa-trash-alt");
 
   item_divider.setAttribute("class", "item_divider");
-
+  g;
   itemRow.innerText = text;
 
   if (input.value == "") {
